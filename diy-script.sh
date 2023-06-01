@@ -6,7 +6,15 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 #===============================================
+rm -rf target/linux/ipq807x
+svn export https://github.com/immortalwrt/immortalwrt/branches/master/target/linux/ipq807x target/linux/ipq807x
+svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq807x/config-5.4 target/linux/ipq807x/config-5.4
+svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq807x/patches-5.4 target/linux/ipq807x/patches-5.4
+rm -rf target/linux/ipq807x/Makefile
+rm -rf target/linux/ipq807x/patches-5.4/*.*
+svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq807x/Makefile target/linux/ipq807x/Makefile
 
+sed -i 's/PATCHVER:=5.15/PATCHVER:=5.4/g' target/linux/ipq807x/Makefile
 # 修改默认IP
 sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
 
@@ -148,3 +156,6 @@ echo 'net.bridge.bridge-nf-call-iptables=0' >>package/base-files/files/etc/sysct
 sed -i 's/enable/Disable/g' feeds/packages/utils/dockerd/files/etc/sysctl.d/sysctl-br-netfilter-ip.conf
 sed -i 's/ip6tables=1/ip6tables=0/g' feeds/packages/utils/dockerd/files/etc/sysctl.d/sysctl-br-netfilter-ip.conf
 sed -i 's/iptables=1/iptables=0/g' feeds/packages/utils/dockerd/files/etc/sysctl.d/sysctl-br-netfilter-ip.conf
+
+rm -rf target/linux/generic/backport-5.4/011-kbuild-export-SUBARCH.patch
+rm -rf target/linux/ipq807x/patches-5.4/*
