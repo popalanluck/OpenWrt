@@ -6,7 +6,7 @@
 # https://github.com/P3TERX
 #===============================================
 
-name: 01-X86_64 OpenWrt
+name: 001-OpenWrt-X86_64--By-Alan
 permissions: write-all
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ on:
 env:
   SOURCE_URL: https://github.com/coolsnowwolf/lede
   SOURCE_BRANCH: master
-  CONFIG_FILE: configs/x86-0531.config
+  CONFIG_FILE: configs/001-OpenWrt-X86_64.config
   DIY_SCRIPT: diy-script.sh
   TOOLCHAIN_TAG: Toolchain
   CLASH_KERNEL: amd64
