@@ -6,12 +6,12 @@
 # https://github.com/P3TERX
 #===============================================
 
-name: X86_64 OpenWrt
+name: 01-X86_64 OpenWrt
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 19 * * *
+    - cron: 0 11 */7 * *
 
 env:
   SOURCE_URL: https://github.com/coolsnowwolf/lede
