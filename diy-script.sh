@@ -107,7 +107,7 @@ echo 'src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' >
 svn export https://github.com/haiibo/packages/trunk/luci-app-onliner package/luci-app-onliner
 sed -i '/bin\/sh/a\uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean/default-settings/files/zzz-default-settings
 sed -i '/nlbwmon/a\uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
-chmod 755 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
+chmod 777 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
