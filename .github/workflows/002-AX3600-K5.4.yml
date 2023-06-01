@@ -6,12 +6,12 @@
 # https://github.com/P3TERX
 #===============================================
 
-name: 02-Openwrt-AX3600-K5.4
+name: 002-Openwrt-AX3600-K5.4
 permissions: write-all
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 11 */7 * *
+    - cron: 0 11 31 * *
 
 env:
   SOURCE_URL: https://github.com/popalanluck/lede
