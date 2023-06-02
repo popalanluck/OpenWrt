@@ -159,5 +159,8 @@ sed -i 's/enable/Disable/g' feeds/packages/utils/dockerd/files/etc/sysctl.d/sysc
 sed -i 's/ip6tables=1/ip6tables=0/g' feeds/packages/utils/dockerd/files/etc/sysctl.d/sysctl-br-netfilter-ip.conf
 sed -i 's/iptables=1/iptables=0/g' feeds/packages/utils/dockerd/files/etc/sysctl.d/sysctl-br-netfilter-ip.conf
 
-rm -rf target/linux/generic/backport-5.4/011-kbuild-export-SUBARCH.patch
+rm -rf target/linux/generic/backport-5.4/*
+rm -rf target/linux/generic/backport-5.4/*.*
 rm -rf target/linux/ipq807x/patches-5.4/*
+rm -rf target/linux/ipq807x/patches-5.4/*.*
+
