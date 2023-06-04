@@ -264,6 +264,9 @@ jobs:
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
         git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+        rm -rf target/linux/generic/backport-5.4/*
+        rm -rf target/linux/generic/hack-5.4/*
+        rm -rf target/linux/generic/pending-5.4/*
         $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $CLASH_KERNEL
         $GITHUB_WORKSPACE/scripts/preset-terminal-tools.sh
 
