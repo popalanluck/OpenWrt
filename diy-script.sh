@@ -7,7 +7,7 @@
 # Blog: https://p3terx.com
 #===============================================
 rm -rf target/linux/ipq807x
-svn export https://github.com/immortalwrt/immortalwrt/branches/master/target/linux/ipq807x target/linux/ipq807x
+svn export https://github.com/popalanluck/immortalwrt/branches/master/target/linux/ipq807x target/linux/ipq807x
 svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq807x/config-5.4 target/linux/ipq807x/config-5.4
 svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq807x/patches-5.4 target/linux/ipq807x/patches-5.4
 # rm -rf target/linux/ipq807x/Makefile
