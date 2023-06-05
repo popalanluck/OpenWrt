@@ -6,7 +6,7 @@
 # https://github.com/P3TERX
 #===============================================
 
-name: 002-Openwrt-AX3600-By-Alan
+name: 002-01-Openwrt-AX3600-By-Alan
 permissions: write-all
 on:
   workflow_dispatch:
