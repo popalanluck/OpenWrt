@@ -14,9 +14,9 @@ on:
     - cron: 0 11 31 * *
 
 env:
-  SOURCE_URL: https://github.com/popalanluck/lede
+  SOURCE_URL: https://github.com/coolsnowwolf/lede
   SOURCE_BRANCH: master
-  CONFIG_FILE: configs/ax3600-k5.4.config
+  CONFIG_FILE: configs/ax3600.config
   DIY_SCRIPT: diy-script.sh
   TOOLCHAIN_TAG: Toolchain
   CLASH_KERNEL: arm64
@@ -263,10 +263,10 @@ jobs:
         chmod +x $DIY_SCRIPT
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
-        git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-        rm -rf target/linux/generic/backport-5.4/*
-        rm -rf target/linux/generic/hack-5.4/*
-        rm -rf target/linux/generic/pending-5.4/*
+        git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
+        # rm -rf target/linux/generic/backport-5.4/*
+        # rm -rf target/linux/generic/hack-5.4/*
+        # rm -rf target/linux/generic/pending-5.4/*
         $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $CLASH_KERNEL
         $GITHUB_WORKSPACE/scripts/preset-terminal-tools.sh
 
