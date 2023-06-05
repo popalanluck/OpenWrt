@@ -6,7 +6,7 @@
 # https://github.com/P3TERX
 #===============================================
 
-name: 002-Openwrt-AX3600-K5.4---By-Alan
+name: 002-2-Openwrt-AX3600-K5.4---By-Alan
 permissions: write-all
 on:
   workflow_dispatch:
@@ -14,8 +14,8 @@ on:
     - cron: 0 11 31 * *
 
 env:
-  SOURCE_URL: https://github.com/coolsnowwolf/lede
-  SOURCE_BRANCH: master
+  SOURCE_URL: https://github.com/popalanluck/immortalwrt
+  SOURCE_BRANCH: openwrt-18.06-k5.4
   CONFIG_FILE: configs/ax3600-k5.4.config
   DIY_SCRIPT: diy-script.sh
   TOOLCHAIN_TAG: Toolchain
