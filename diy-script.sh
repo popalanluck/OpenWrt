@@ -12,7 +12,7 @@ svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq
 svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq807x/patches-5.4 target/linux/ipq807x/patches-5.4
 # rm -rf target/linux/ipq807x/Makefile
 # rm -rf target/linux/ipq807x/patches-5.4/*.*
-# svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq807x/Makefile target/linux/ipq807x/Makefile
+# svn export https://github.com/popalanluck/robimarko-openwrt/branches/AX3600/target/linux/ipq807x/Makefile target/linux/ipq807x/Makefile
 
 sed -i 's/PATCHVER:=5.15/PATCHVER:=6.1/g' target/linux/ipq807x/Makefile
 sed -i 's/KERNEL_TESTING_PATCHVER:=6.1/KERNEL_TESTING_PATCHVER:=5.15/g' target/linux/ipq807x/Makefile
