@@ -6,7 +6,7 @@
 # https://github.com/P3TERX
 #===============================================
 
-name: 002-02-immortalwrt-AX3600-K5.4---By-Alan
+name: 002-02-immortalwrt-AX3600-K5.4-By-Alan
 permissions: write-all
 on:
   workflow_dispatch:
