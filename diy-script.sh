@@ -10,13 +10,16 @@ rm -rf target/linux/ipq807x
 svn export https://github.com/immortalwrt/immortalwrt/branches/master/target/linux/ipq807x target/linux/ipq807x
 svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq807x/config-5.4 target/linux/ipq807x/config-5.4
 svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq807x/patches-5.4 target/linux/ipq807x/patches-5.4
-rm -rf target/linux/ipq807x/Makefile
-rm -rf target/linux/ipq807x/patches-5.4/*.*
-svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq807x/Makefile target/linux/ipq807x/Makefile
+# rm -rf target/linux/ipq807x/Makefile
+# rm -rf target/linux/ipq807x/patches-5.4/*.*
+# svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq807x/Makefile target/linux/ipq807x/Makefile
 
-sed -i 's/PATCHVER:=5.15/PATCHVER:=5.4/g' target/linux/ipq807x/Makefile
+sed -i 's/PATCHVER:=5.15/PATCHVER:=6.1/g' target/linux/ipq807x/Makefile
+sed -i 's/KERNEL_TESTING_PATCHVER:=6.1/KERNEL_TESTING_PATCHVER:=5.15/g' target/linux/ipq807x/Makefile
+
 # 修改默认IP
-sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.36.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.6.1/192.168.36.1/g' package/base-files/files/bin/config_generate
 
 # 更改默认 Shell 为 zsh
 # sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
@@ -60,6 +63,8 @@ svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwal
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 
 # Themes
+rm -rf feeds/luci/themes/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
 # git clone --depth=1 -b 18.06 https://github.com/kiddin9/luci-theme-edge package/luci-theme-edge
 # git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
