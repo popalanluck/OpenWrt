@@ -263,6 +263,7 @@ jobs:
         chmod +x $DIY_SCRIPT
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
+        sed -i 's/192.168.6.1/192.168.36.1/g' package/base-files/files/bin/config_generate
         rm -rf target/linux/ipq807x/Makefile        
         svn export https://github.com/popalanluck/robimarko-openwrt/branches/AX3600/target/linux/ipq807x/Makefile target/linux/ipq807x/Makefile
         git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
