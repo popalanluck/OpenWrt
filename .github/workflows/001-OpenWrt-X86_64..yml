@@ -263,6 +263,7 @@ jobs:
         chmod +x $DIY_SCRIPT
         cd $OPENWRT_PATH
         $GITHUB_WORKSPACE/$DIY_SCRIPT
+        rm -rf feeds/luci/themes/luci-theme-argon
         git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
         $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $CLASH_KERNEL
         $GITHUB_WORKSPACE/scripts/preset-terminal-tools.sh
