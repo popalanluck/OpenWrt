@@ -147,6 +147,7 @@ sed -i "s|'enabled'|enabled|g" package/feeds/nas_luci/luci-app-istorex/root/etc/
 sed -i "s|'model'|model|g" package/feeds/nas_luci/luci-app-istorex/root/etc/config/istorex
 sed -i "s|'wizard'|'router'|g" package/feeds/nas_luci/luci-app-istorex/root/etc/config/istorex
 sed -i "s|'wizard'|'router'|g" feeds/packages/nas_luci/luci-app-istorex/root/etc/config/istorex
+sed -i "s|'wizard'|'router'|g" feeds/nas_luci/luci-app-istorex/root/etc/config/istorex
 sed -i "s|'wizard'|'router'|g" package/nas_luci/luci-app-istorex/root/etc/config/istorex
 
 # 调整 V2ray服务器 到 VPN 菜单
