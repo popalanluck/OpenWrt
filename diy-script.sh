@@ -16,6 +16,8 @@ svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq
 echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
 ./scripts/feeds update -a -f
 ./scripts/feeds install -a
+rm -rf feeds/kenzo/luci-theme-argon
+rm -rf feeds/kenzo/luci-app-argon-config
 
 # sed -i 's/PATCHVER:=5.15/PATCHVER:=6.1/g' target/linux/ipq807x/Makefile
 # sed -i 's/KERNEL_TESTING_PATCHVER:=6.1/KERNEL_TESTING_PATCHVER:=5.15/g' target/linux/ipq807x/Makefile
