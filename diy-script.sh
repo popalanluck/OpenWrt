@@ -13,6 +13,7 @@ svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq
 # rm -rf target/linux/ipq807x/Makefile
 # rm -rf target/linux/ipq807x/patches-5.4/*.*
 # svn export https://github.com/popalanluck/robimarko-openwrt/branches/AX3600/target/linux/ipq807x/Makefile target/linux/ipq807x/Makefile
+echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
 ./scripts/feeds update -a -f
 ./scripts/feeds install -a
 
