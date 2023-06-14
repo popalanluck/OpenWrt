@@ -13,6 +13,8 @@ svn export https://github.com/robimarko/openwrt/branches/AX3600/target/linux/ipq
 # rm -rf target/linux/ipq807x/Makefile
 # rm -rf target/linux/ipq807x/patches-5.4/*.*
 # svn export https://github.com/popalanluck/robimarko-openwrt/branches/AX3600/target/linux/ipq807x/Makefile target/linux/ipq807x/Makefile
+./scripts/feeds update -a -f
+./scripts/feeds install -a
 
 # sed -i 's/PATCHVER:=5.15/PATCHVER:=6.1/g' target/linux/ipq807x/Makefile
 # sed -i 's/KERNEL_TESTING_PATCHVER:=6.1/KERNEL_TESTING_PATCHVER:=5.15/g' target/linux/ipq807x/Makefile
@@ -115,7 +117,7 @@ sed -i '/bin\/sh/a\uci set nlbwmon.@nlbwmon[0].refresh_interval=2s' package/lean
 sed -i '/nlbwmon/a\uci commit nlbwmon' package/lean/default-settings/files/zzz-default-settings
 chmod 777 package/luci-app-onliner/root/usr/share/onliner/setnlbw.sh
 
-./scripts/feeds update -a
+./scripts/feeds update -a -f
 ./scripts/feeds install -a
 
 # x86 型号只显示 CPU 型号
@@ -143,12 +145,9 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_U
 find package/luci-theme-*/* -type f -name '*luci-theme-*' -print -exec sed -i '/set luci.main.mediaurlbase/d' {} \;
 
 #调整设置
-sed -i "s|'enabled'|enabled|g" package/feeds/nas_luci/luci-app-istorex/root/etc/config/istorex
-sed -i "s|'model'|model|g" package/feeds/nas_luci/luci-app-istorex/root/etc/config/istorex
-sed -i "s|'wizard'|'router'|g" package/feeds/nas_luci/luci-app-istorex/root/etc/config/istorex
-sed -i "s|'wizard'|'router'|g" feeds/packages/nas_luci/luci-app-istorex/root/etc/config/istorex
-sed -i "s|'wizard'|'router'|g" feeds/nas_luci/luci-app-istorex/root/etc/config/istorex
-sed -i "s|'wizard'|'router'|g" package/nas_luci/luci-app-istorex/root/etc/config/istorex
+# sed -i "s|'enabled'|enabled|g" feeds/nas_luci/luci/luci-app-istorex/root/etc/config/istorex
+# sed -i "s|'model'|model|g" feeds/nas_luci/luci/luci-app-istorex/root/etc/config/istorex
+sed -i "s|'wizard'|'router'|g" feeds/nas_luci/luci/luci-app-istorex/root/etc/config/istorex
 
 # 调整 V2ray服务器 到 VPN 菜单
 sed -i 's/services/vpn/g' feeds/luci/applications/luci-app-v2ray-server/luasrc/controller/*.lua
@@ -167,4 +166,4 @@ sed -i 's/ip6tables=1/ip6tables=0/g' feeds/packages/utils/dockerd/files/etc/sysc
 sed -i 's/iptables=1/iptables=0/g' feeds/packages/utils/dockerd/files/etc/sysctl.d/sysctl-br-netfilter-ip.conf
 
 # rm -rf target/linux/generic/backport-5.4/*
-rm -rf target/linux/ipq807x/patches-5.4/*
+# rm -rf target/linux/ipq807x/patches-5.4/*
