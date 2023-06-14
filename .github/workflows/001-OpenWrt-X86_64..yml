@@ -59,6 +59,8 @@ jobs:
         df -hT $GITHUB_WORKSPACE
         git clone $SOURCE_URL -b $SOURCE_BRANCH workspace/openwrt
         cd workspace/openwrt
+        ./scripts/feeds update -a -f
+        ./scripts/feeds install -a
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
         echo "OPENWRT_PATH=$(echo $PWD)" >> $GITHUB_OUTPUT
         export VERSION_INFO=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
@@ -110,7 +112,7 @@ jobs:
       if: steps.hash.outputs.REBUILD_TOOLCHAIN == 'true'
       run: |
         cd $OPENWRT_PATH
-        ./scripts/feeds update -a
+        ./scripts/feeds update -a -f
         ./scripts/feeds install -a
 
     - name: Compile Tools
@@ -263,7 +265,6 @@ jobs:
         chmod +x $DIY_SCRIPT
         cd $OPENWRT_PATH
         rm -rf feeds/luci/themes/luci-theme-argon
-        git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
         git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
         $GITHUB_WORKSPACE/$DIY_SCRIPT
         $GITHUB_WORKSPACE/scripts/preset-clash-core.sh $CLASH_KERNEL
